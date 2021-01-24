@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect} from "react";
 import Card from "../shared/card";
+import { connect } from "react-redux";
 import { MDBContainer, MDBRow } from "mdbreact";
+import { getEquipment } from "../action/equipment.action";
+
 const Home =(props) =>{
+    useEffect(() => {
+        props.onGetEquipmentDetails();
+        console.log(props.equipment.length)
+      }, []);
+
     return(
         <div>
             <MDBContainer>
@@ -15,4 +23,19 @@ const Home =(props) =>{
     )
 }
 
-export default Home
+const mapStateToProps = (state) => {
+    return {
+      equipment: state.equipmentData.equipmentTypes || [],
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      onGetEquipmentDetails: () => {
+        dispatch(getEquipment());
+      },
+    };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

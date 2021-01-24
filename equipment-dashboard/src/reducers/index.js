@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
-// import postReducer from "./postReducer";
+import equipmentReducer from "./equipmentReducer";
 
 export default combineReducers({
-  itemData: [],
-  
+  equipmentData: equipmentReducer,  
 });
