@@ -1,20 +1,18 @@
 import React from "react";
-import {MDBCol,MDBCard,MDBCardBody,MDBCardText,MDBIcon,} from "mdbreact";
+import {MDBCol,MDBCard} from "mdbreact";
 
 const Card = (props) => {
        return(
         <MDBCol xl="3" md="6" className="mb-r">
-            <MDBCard className="cascading-admin-card">
+            <MDBCard className="cascading-admin-card  mdb-color danger-color" >
                 <div className="admin-up">
-                    <MDBIcon icon="money-bill-alt" className="primary-color"/>
                     <div className="data">
-                        <p>{props.title}</p>
-                        <h4>
-                        <strong>{props.value}</strong>
-                        </h4>
+                        <p className="font-weight-normal" style={{color: "white"}}>{props.title}</p>
+                        <h2 >
+                        <strong style={{color: "white"}}>{props.value}</strong>
+                        </h2>
                     </div>
                 </div>
-                
             </MDBCard>
       </MDBCol>
 
